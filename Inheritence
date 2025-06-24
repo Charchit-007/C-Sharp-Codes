@@ -1,0 +1,118 @@
+/*namespace Practical_1._2_45_TYIT
+{   
+    class A
+    {
+        public virtual void display() {
+            Console.WriteLine("A ke under");
+        }
+    }
+    class B:A
+    {
+        public override void display()
+        {
+            Console.WriteLine("B ke under");
+        }
+    }
+    class C : B
+    {
+        public override void display()
+        {
+            Console.WriteLine("C ke under");
+        }
+    }
+    class Program: C
+    {
+        public override void display()
+        {
+            Console.WriteLine("Program ke under");
+        }
+        static void Main()
+        {
+            *//*A a = new Program();
+            A a = new A();
+            A a = new B();
+            A a = new C();*//*
+
+            C c = new C();
+            c.display();
+        }
+    }
+}*/
+/*namespace Practical_1._2_45_TYIT
+{
+    class A
+    {
+        public virtual void display()
+        {
+            Console.WriteLine("A ke under");
+        }
+    }
+    class B : A
+    {
+        public new void display()
+        {
+            Console.WriteLine("B ke under");
+        }
+    }
+    class Program : B
+    {
+        static void Main()
+        {
+            *//*A a = new Program();
+            A a = new A();
+            A a = new B();
+            A a = new C();*//*
+
+            A a = new B();
+            a.display();
+        }
+    }
+}*/
+namespace Practical_1._2_45_TYIT
+{
+    class A
+    {
+        public virtual void display()
+        {
+            Console.WriteLine("A ke under");
+        }
+    }
+    class B : A
+    {
+        public override void display()
+        {
+            Console.WriteLine("B ke under");
+        }
+    }
+    class C : B
+    {
+        public override void display()
+        {
+            Console.WriteLine("C ke under");
+        }
+    }
+    class D : C
+    {
+        public new virtual void display()
+        {
+            Console.WriteLine("D ke under");
+        }
+    }
+    class Program : D
+    {
+        public override void display()
+        {
+            Console.WriteLine("Program ke under");
+        }
+        static void Main()
+        {
+            /*A a = new Program();
+            A a = new A();
+            A a = new B();
+            A a = new C();*/
+
+            A a = new Program();  
+            a.display();    
+        }
+    }
+}
