@@ -1,0 +1,132 @@
+---------------------------------- Student Data ---------------------------------------
+namespace StorageProg
+{
+    class Student
+    {
+        public int UID;
+        public string name;
+        public int age;
+        public string course;
+        public int mark;
+
+        public Student(int UID, string name, int age, string course, int mark)
+        {
+            this.UID = UID;
+            this.name = name;
+            this.age = age;
+            this.course = course;
+            this.mark = mark;
+            //this.mark = 0;
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Student[] s = new Student[2];
+            int UID;
+            string name;
+            int age;
+            string course;
+            int mark;
+            int totalMarks = 0;
+
+            for(int i=0; i<s.Length; i++)
+            {
+                Console.WriteLine("Enter student record "+ (i+1));
+                Console.WriteLine("Enter UID :");
+                UID = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Name :");
+                name = Console.ReadLine();
+                Console.WriteLine("Enter Age :");
+                age = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Course :");
+                course = Console.ReadLine();
+                Console.WriteLine("Enter mark :");
+                mark = int.Parse(Console.ReadLine());
+
+                s[i] = new Student(UID, name, age, course, mark);
+            }
+            Console.WriteLine("Record Stored ");
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                Console.WriteLine(s[i].UID + " " + s[i].name + " " + s[i].age + " " + s[i].course + " " + s[i].mark + "");
+            }
+            Console.WriteLine("Which record you want to see");
+            int search = int.Parse(Console.ReadLine());
+            for (int i = 0; i < s.Length; i++)
+            {
+                if(search == s[i].UID)
+                {
+                    Console.WriteLine(s[i].UID + " " + s[i].name + " " + s[i].age + " " + s[i].course + " " + s[i].mark + "");
+                }
+            }
+        }
+    }
+}
+--------------------- Employee Data ---------------------------
+namespace EmployeeProg
+{
+    class Employee
+    {
+        public int eno;
+        public string name;
+        public string dept;
+        public int salary;
+
+        public Employee(int eno, string name, string dept, int salary)
+        {
+            this.eno = eno;
+            this.name = name;
+            this.dept = dept;
+            this.salary = salary;
+        }
+    }
+    internal class Program
+    {
+        static void Main(String[] args)
+        {
+            Employee[] e = new Employee[2];
+            int eno;
+            string name;
+            string dept;
+            int salary;
+
+            for (int i = 0; i < e.Length; i++)
+            {
+                Console.WriteLine("You are entering employyes record ");
+                Console.WriteLine("Enter eno :");
+                eno = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter name :");
+                name = Console.ReadLine();
+                Console.WriteLine("Enter Department name :");
+                dept = Console.ReadLine();
+                Console.WriteLine("Enter your salary :");
+                salary = int.Parse(Console.ReadLine());
+
+                e[i] = new Employee(eno, name, dept, salary);
+            }
+            Console.WriteLine("Record Stored ");
+
+            for (int i = 0; i < e.Length; i++)
+            {
+                Console.WriteLine(e[i].eno + " " + e[i].name + " " + e[i].dept + " " + e[i].salary + "");
+            }
+            
+            int sal = 0;
+            int val = 0;
+            for (int i = 0; i < e.Length; i++)
+            { // TO get emp with max sal
+                
+                if (e[i].salary > sal)
+                {
+                    sal = e[i].salary;
+                    val = i;
+                }
+            }
+            Console.WriteLine("Employee with maximum salary is :" + e[val].name);
+        }
+    }
+}
+  
