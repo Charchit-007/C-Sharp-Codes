@@ -1,0 +1,141 @@
+using System.Linq;
+using System.Xml.Linq;
+using System.Text;
+using System.Linq.Expressions;
+
+// Q1. Display product price > 40000
+// Q2. Display all the product name and the price 
+// Q3. Display only the product name and its date of manufacture for laptops only 
+// Q4. Display only those products which have dom '23-08-2005'
+/*
+namespace LinqProg
+{
+    class LinqXML
+    {
+        static void Main()
+        {
+            XDocument pd = XDocument.Load("C:\\Users\\SXC_Student\\source\\repos\\Prac_4\\productList.xml");
+
+            var products = pd.Elements();
+            Console.WriteLine("**************** Q1. Display product price > 40000 ***********************");
+            var result = products.Elements("Product") //products = table , product = row
+                .Where(x => (int)x.Element("price") > 40000)
+                .Select(x =>
+                        new
+                        {
+                            Name = x.Element("pname").Value,
+                            Price = x.Element("price").Value,
+                            dom = x.Element("dom").Value
+                        }
+                 );
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey(); 
+        }
+    }
+}
+*/
+// Q2. Display all the product name and the price 
+// Q3. Display only the product name and its date of manufacture for laptops only 
+// Q4. Display only those products which have dom '23-08-2005'
+/*
+namespace LinqProg
+{
+    class LinqXML
+    {
+        static void Main()
+        {
+            XDocument pd = XDocument.Load("C:\\Users\\SXC_Student\\source\\repos\\Prac_4\\productList.xml");
+
+            var products = pd.Elements();
+            Console.WriteLine("**************** Q2. Display product name and price ***********************");
+            var result = products.Elements("Product") //products = table , product = row
+                .Select(x =>
+                        new
+                        {
+                            Name = x.Element("pname").Value,
+                            Price = x.Element("price").Value,
+                        }
+                 );
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey();
+        }
+    }
+}
+*/
+/*
+namespace LinqProg
+{
+    class LinqXML
+    {
+        static void Main()
+        {
+            XDocument pd = XDocument.Load("C:\\Users\\SXC_Student\\source\\repos\\Prac_4\\productList.xml");
+
+            var products = pd.Elements();
+            Console.WriteLine("**************** Q3. Display only the product name and its date of manufacture for laptops only ***********************");
+            // By adding property device 
+            var result = products.Elements("Product") //products = table , product = row
+                .Where(x => (string)x.Element("device") == "Laptop")
+                .Select(x =>
+                        new
+                        {
+                            Name = x.Element("pname").Value,
+                            dom = x.Element("dom").Value
+                        }
+                 );
+            
+            //BY using .conatins 
+            var result = products.Elements("Product") //products = table , product = row
+                .Where(x => ((string)x.Element("pname")).Contains("Laptop"))
+                .Select(x =>
+                        new
+                        {
+                            Name = x.Element("pname").Value,
+                            dom = x.Element("dom").Value
+                        }
+                 );
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey();
+        }
+    }
+}
+*/
+/*
+namespace LinqProg
+{
+    class LinqXML
+    {
+        static void Main()
+        {
+            XDocument pd = XDocument.Load("C:\\Users\\SXC_Student\\source\\repos\\Prac_4\\productList.xml");
+
+            var products = pd.Elements();
+            Console.WriteLine("**************** Q4. Display only those products which have dom '23-08-2005' ***********************");
+            var result = products.Elements("Product") //products = table , product = row
+                .Where(x => (string)x.Element("dom") == "23-08-2005")
+                .Select(x =>
+                        new
+                        {
+                            Name = x.Element("pname").Value,
+                            Price = x.Element("price").Value,
+                            dom = x.Element("dom").Value
+                        }
+                 );
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey();
+        }
+    }
+}
+*/
