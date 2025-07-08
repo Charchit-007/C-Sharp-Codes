@@ -139,3 +139,12 @@ namespace LinqProg
     }
 }
 */
+
+//using && opertor in Linq
+var result = from x in products.Elements("Product") //products = table , product = row
+        where ((int)x.Element("price") > 40000 &&
+        (DateTime.ParseExact ((string)x.Element("dom"), "dd-mm-yy", null)) ==
+         DateTime.ParseExact("23-08-05", "dd-mm-yy", null))
+      select new
+      { prname = (string)x.Element("pname"),
+         prprice = (int)x.Element("price")};
